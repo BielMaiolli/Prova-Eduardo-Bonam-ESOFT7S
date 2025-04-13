@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ClasseType } from "../enums/classe-type";
-import { ItensMagicosType } from "src/itens-magicos/enums/itens-magicos.enum";
+import { ItemMagico } from "src/itens-magicos/schemas/item-magico.schema";
+import mongoose from "mongoose";
 
 export type PersonagemDocument = Personagem & Document;
 
@@ -22,8 +23,8 @@ export class Personagem {
     @Prop({ required: true })
     level: Number;
 
-    @Prop({ type: [String], enum: ItensMagicosType, required: true })
-    listaDeItensMagicos: ItensMagicosType[];
+    @Prop({ type: [String], required: true })
+    listaDeItensMagicos: ItemMagico[];
 
     @Prop({ required: true })
     forca: Number; 

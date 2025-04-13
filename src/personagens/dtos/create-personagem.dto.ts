@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { ClasseType } from "../enums/classe-type";
-import { ItensMagicosType } from "src/itens-magicos/enums/itens-magicos.enum";
+import { ItemMagico } from "src/itens-magicos/schemas/item-magico.schema";
 
 export class CreatePersonagemDTO {
     
@@ -24,9 +24,9 @@ export class CreatePersonagemDTO {
 
     @ApiProperty({ 
         description: "Itens Mágicos do Personagem.", 
-        enum: ItensMagicosType,
-        isArray: true })
-    listaDeItensMagicos: ItensMagicosType[];
+        isArray: true,
+        type: String, })
+    listaDeItensMagicos: ItemMagico[];
 
     @ApiProperty({ description: "Força do Personagem." })
     forca: Number; 
